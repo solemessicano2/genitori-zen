@@ -1,10 +1,10 @@
-import { GoogleGenAI, Type, Schema } from "@google/genai";
+import { GoogleGenAI, Type } from "@google/genai";
 import { AdviceResponse, AngerAdviceResponse, TriggerAdviceResponse } from "../types";
 
 // The API key must be obtained exclusively from the environment variable process.env.API_KEY.
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
-const adviceSchema: Schema = {
+const adviceSchema = {
   type: Type.OBJECT,
   properties: {
     analysis: {
@@ -30,7 +30,7 @@ const adviceSchema: Schema = {
   required: ["analysis", "dos", "donts", "conversationStarters"],
 };
 
-const angerSchema: Schema = {
+const angerSchema = {
   type: Type.OBJECT,
   properties: {
     parentMantra: {
@@ -57,7 +57,7 @@ const angerSchema: Schema = {
   required: ["parentMantra", "immediateAction", "magicPhrase", "triggerAvoid", "deescalationStrategy"],
 };
 
-const triggerAdviceSchema: Schema = {
+const triggerAdviceSchema = {
   type: Type.OBJECT,
   properties: {
     validation: {
